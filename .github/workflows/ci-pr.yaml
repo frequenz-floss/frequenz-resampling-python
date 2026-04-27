@@ -3,10 +3,6 @@ name: Test PR
 on:
   pull_request:
 
-permissions:
-  # Read repository contents for checkout and dependency resolution only.
-  contents: read
-
 env:
   # Please make sure this version is included in the `matrix`, as the
   # `matrix` section can't use `env`, so it must be entered manually
@@ -21,7 +17,7 @@ jobs:
 
     steps:
       - name: Run nox
-        uses: frequenz-floss/gh-action-nox@80a9845a59ffc71d27b9c41099eb6cb55bc7b671 # v1.1.1
+        uses: frequenz-floss/gh-action-nox@v1.0.1
         with:
           python-version: "3.11"
           nox-session: ci_checks_max
@@ -31,15 +27,15 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - name: Setup Git
-        uses: frequenz-floss/gh-action-setup-git@16952aac3ccc01d27412fe0dea3ea946530dcace # v1.0.0
+        uses: frequenz-floss/gh-action-setup-git@v1.0.0
 
       - name: Fetch sources
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        uses: actions/checkout@v5
         with:
           submodules: true
 
       - name: Setup Python
-        uses: frequenz-floss/gh-action-setup-python-with-deps@e4d0b2ef8f5a1612d7827f3abaef17c931d2b946 # v1.0.2
+        uses: frequenz-floss/gh-action-setup-python-with-deps@v1.0.1
         with:
           python-version: ${{ env.DEFAULT_PYTHON_VERSION }}
           dependencies: .[dev-mkdocs]
@@ -48,14 +44,11 @@ jobs:
         env:
           MIKE_VERSION: gh-${{ github.job }}
         run: |
-          # mike is installed as a console script, not a runnable module.
-          # Run the installed script under isolated mode to avoid importing from
-          # the workspace when building docs from checked-out code.
-          python -I "$(command -v mike)" deploy "$MIKE_VERSION"
-          python -I "$(command -v mike)" set-default "$MIKE_VERSION"
+          mike deploy $MIKE_VERSION
+          mike set-default $MIKE_VERSION
 
       - name: Upload site
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        uses: actions/upload-artifact@v5
         with:
           name: docs-site
           path: site/
