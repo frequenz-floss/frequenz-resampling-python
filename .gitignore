@@ -148,3 +148,9 @@ cython_debug/
 # Automatically generated documentation
 docs/reference/
 site/
+
+
+# Added by cargo
+
+/target
+uv.lock
