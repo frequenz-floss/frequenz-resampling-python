@@ -33,6 +33,12 @@ expanded tests and CI to validate the compiled package workflow.
   environments.
 - Expand repository docs (`README.md`, `AGENTS.md`) for the new architecture.
 
+## Build Changes
+
+- Switch from a single abi3-compatible wheel to per-Python-version wheels
+  (`cp311`, `cp312`, `cp313`, `cp314`). This removes the `abi3-py311` PyO3
+  feature so each supported Python version gets its own compiled wheel.
+
 ## Bug Fixes
 
 - Fix docs and tooling source path assumptions from `src/` to `frequenz/` for
