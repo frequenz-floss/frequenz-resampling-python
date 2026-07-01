@@ -76,7 +76,7 @@ dev-pylint = [
   "frequenz-resampling[dev-mkdocs,dev-noxfile,dev-pytest]",
 ]
 dev-pytest = [
-  "pytest == 9.0.3",
+  "pytest == 9.1.1",
   "pylint == 4.0.6",       # We need this to check for the examples
   "pandas == 3.0.3",
   "pandas-stubs == 3.0.3.260530",
