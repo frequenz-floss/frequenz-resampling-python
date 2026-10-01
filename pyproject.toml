@@ -57,7 +57,7 @@ dev-mkdocs = [
   "mkdocs-macros-plugin == 1.5.0",
   "mkdocs-material == 9.7.7",
   "mkdocstrings[python] == 1.0.6",
-  "mkdocstrings-python == 2.0.7",
+  "mkdocstrings-python == 2.0.9",
   "frequenz-repo-config[lib] == 0.18.0",
 ]
 dev-mypy = [
@@ -77,8 +77,8 @@ dev-pylint = [
 ]
 dev-pytest = [
   "pytest == 9.1.1",
-  "pylint == 4.0.7",       # We need this to check for the examples
-  "pandas == 3.0.5",
+  "pylint == 4.0.9",       # We need this to check for the examples
+  "pandas == 3.0.6",
   "pandas-stubs == 3.0.5.260730",
   "frequenz-repo-config[extra-lint-examples] == 0.18.0",
   "pytest-mock == 3.15.1",
