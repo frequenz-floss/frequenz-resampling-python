@@ -79,7 +79,7 @@ dev-pytest = [
   "pytest == 9.1.1",
   "pylint == 4.0.9",       # We need this to check for the examples
   "pandas == 3.0.6",
-  "pandas-stubs == 3.0.5.260730",
+  "pandas-stubs == 3.0.5.260914",
   "frequenz-repo-config[extra-lint-examples] == 0.18.0",
   "pytest-mock == 3.16.0",
   "pytest-asyncio == 1.4.0",
