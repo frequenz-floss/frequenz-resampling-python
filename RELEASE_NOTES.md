@@ -22,3 +22,5 @@
   actions, re-added workflow-level `permissions: contents: read`, restored
   `python -I` isolated mode on Python invocations, re-added `permissions: {}`
   on gate jobs, and fixed shell injection risks in `mike` and release steps.
+* Bumped `pyo3` to 0.29.3 to fix wheel builds, which were failing to compile
+  against PyPy 3.12 on a `pyo3-ffi` 0.29.0 bug.
